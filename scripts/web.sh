@@ -9,5 +9,13 @@ function browse_to()
     url="http://$url"
   fi
 
-  $browser "$url" > /dev/null
+  $browser "$url" > /dev/null &
+}
+
+function google_search()
+{
+  terms=${1// /+}
+  google_search_url="http://google.com/search?q=$terms"
+
+  browse_to $google_search_url
 }
